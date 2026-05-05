@@ -1,92 +1,96 @@
 # FormulariosAvanzados
 
-User registration form for a digital bank built with Angular Reactive Forms. Validates all fields in real time, blocks invalid submissions, and simulates an API call on submit.
+**Demo en Netlify:** [Ver aplicación desplegada](https://tu-app.netlify.app)
+
+Formulario de registro de usuarios para un banco digital, construido con Angular Reactive Forms. Valida todos los campos en tiempo real, bloquea envíos con datos inválidos y simula una llamada a una API al enviar.
 
 ---
 
-## Screenshots
+## Capturas de pantalla
 
-**Form — general view**
+**Vista general del formulario**
 
-![Form general view](images/form-general.png)
+![Vista general del formulario](images/form-general.png)
 
-**Validation errors**
+**Errores de validación**
 
-![Validation errors displayed](images/form-validaciones.png)
+![Errores de validación visibles](images/form-validaciones.png)
 
-**Async email validation**
+**Validación asíncrona de email**
 
-![Async email already registered error](images/form-email-async.png)
+![Error de email ya registrado](images/form-email-async.png)
 
-**Success message after submit**
+**Mensaje de éxito tras el envío**
 
-![Success message after registration](images/form-exito.png)
+![Mensaje de registro exitoso](images/form-exito.png)
 
----
-
-## Features
-
-- Real-time validation with specific error messages per field
-- Custom validator: password confirmation (cross-field)
-- Custom validator: minimum age of 18
-- Async validator: simulated email availability check (800 ms delay)
-- Errors only appear after the user has touched or modified a field
-- Submit button stays disabled while the form is invalid
-- Password strength indicator (Weak / Medium / Strong)
-- Show/hide password toggle
-- Form resets after a successful submission
-- Simulated API call with `setTimeout`
+> Las imágenes se mostrarán una vez que agregues los archivos `.png` en la carpeta `images/`.
 
 ---
 
-## Fields and Rules
+## Funcionalidades
 
-| Field | Rules |
+- Validación en tiempo real con mensajes de error específicos por campo
+- Validador personalizado: confirmación de contraseña (entre campos)
+- Validador personalizado: edad mínima de 18 años
+- Validador asíncrono: verificación simulada de disponibilidad de email (800 ms de delay)
+- Los errores solo aparecen después de que el usuario toca o modifica un campo
+- El botón de envío se deshabilita mientras el formulario sea inválido
+- Indicador de fuerza de contraseña (Débil / Media / Fuerte)
+- Toggle para mostrar u ocultar la contraseña
+- El formulario se resetea tras un envío exitoso
+- Envío simulado a una API con `setTimeout`
+
+---
+
+## Campos y reglas de validación
+
+| Campo | Reglas |
 |---|---|
-| Name | Required. 3–50 characters. Letters and spaces only. |
-| Email | Required. Valid format. Blocked addresses: `admin@banco.com`, `usuario@banco.com`, `test@test.com`. |
-| Password | Required. Min. 8 characters. Must include uppercase, lowercase, and a number. |
-| Confirm Password | Must match the password field. |
-| Age | Required. Must be 18 or older. |
-| Terms | Must be accepted. |
+| Nombre | Obligatorio. 3–50 caracteres. Solo letras y espacios. |
+| Email | Obligatorio. Formato válido. Emails bloqueados: `admin@banco.com`, `usuario@banco.com`, `test@test.com`. |
+| Contraseña | Obligatorio. Mínimo 8 caracteres. Debe incluir mayúscula, minúscula y un número. |
+| Confirmar contraseña | Debe coincidir con el campo de contraseña. |
+| Edad | Obligatorio. Debe ser 18 años o más. |
+| Términos | Debe ser aceptado. |
 
 ---
 
-## Project Structure
+## Estructura del proyecto
 
 ```
 src/app/
   registro/
-    registro.component.ts     # Form logic and submit handler
-    registro.component.html   # Template with bindings and error messages
-    registro.component.css    # Component styles
-    validators.ts             # Custom and async validators
-  app.ts                      # Root component
-images/                       # Screenshots for this README
+    registro.component.ts     # Lógica del formulario y manejador de envío
+    registro.component.html   # Template con bindings y mensajes de error
+    registro.component.css    # Estilos del componente
+    validators.ts             # Validadores personalizados y asíncronos
+  app.ts                      # Componente raíz
+images/                       # Capturas de pantalla para este README
 ```
 
 ---
 
-## Getting Started
+## Cómo ejecutar el proyecto
 
 ```bash
-# Clone the repository
+# Clonar el repositorio
 git clone https://github.com/JoyMoGas/AdvancedForms.git
 cd AdvancedForms
 
-# Install dependencies
+# Instalar dependencias
 npm install
 
-# Start the development server
+# Iniciar el servidor de desarrollo
 npm start
 ```
 
-App runs at `http://localhost:4200`.
+La aplicación estará disponible en `http://localhost:4200`.
 
 ---
 
-## Notes
+## Notas
 
-- Built with the Angular standalone component API (no `NgModule`).
-- Font Awesome 6 loaded via CDN for icons.
-- The async email validator fires only on `blur` to avoid unnecessary requests while typing.
+- Construido con la API de componentes standalone de Angular (sin `NgModule`).
+- Font Awesome 6 cargado mediante CDN para los iconos.
+- El validador asíncrono de email se activa solo en `blur` para evitar peticiones innecesarias mientras se escribe.
